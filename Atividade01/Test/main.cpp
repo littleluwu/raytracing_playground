@@ -1,5 +1,5 @@
 #include <iostream>
-#include "image_utils.h"
+#include "../Headers/image_utils.h"
 
 using namespace std;
 

@@ -1,0 +1,3 @@
+# :pencil2:- Atividade02 - Matrix Operations
+
+This assignment set some groundwork for the rest of the project. For convenience when dealing with vectors and matrices later, I created two vector classes (`vec3` and `vec4`) and three matrix classes (`mat2`, `mat3`, and `mat4`) along with their operations. I started experimenting with unit tests for testing the classes. For the time being, I only experimented sufficiently with the vector classes. 
