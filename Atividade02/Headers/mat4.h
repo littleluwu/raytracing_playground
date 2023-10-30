@@ -1,5 +1,5 @@
-#ifndef MAT3_H
-#define MAT3_H
+#ifndef MAT4_H
+#define MAT4_H
 
 #include <cmath>
 #include <iostream>

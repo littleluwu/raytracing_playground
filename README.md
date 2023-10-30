@@ -1,4 +1,4 @@
-# :books:  Learning the basics Raytracing 
+# :books:  Learning the basics of Raytracing 
 
 This repository is an attempt to learn the concepts and fundamentals of raytracing. The code presented here follows the assignments from the class `1001315 - COMPUTAÇÃO GRÁFICA`, lectured by the professor __Mario A. S. Lizier__ on the __Universidade Federal de Sao Carlos - Campus Sorocaba__. The class structure bases itself on the series of books __Raytracing in One Weekend__, written by Peter Shirley, Trevor David Black, and Steve Hollasch. 
 
@@ -15,6 +15,7 @@ Additionally, I also dissect the subsections with the objective of further organ
 ## :hammer:- Dependencies
 
 - libpng
+- gtest
 
 # :memo: Atividades
 
@@ -28,6 +29,9 @@ For this assignment, I wrote a function to manage saving images on the disk. I c
 
 ## :pencil2:- Atividade02 - Matrix Operations
 
-This assignment set some groundwork for the rest of the project. For convenience when dealing with vectors and matrices later, I created two vector classes (`vec3` and `vec4`) and three matrix classes (`mat2`, `mat3`, and `mat4`) along with their operations. I started experimenting with unit tests for testing the classes. For the time being, I only experimented sufficiently with the vector classes. 
+This assignment set some groundwork for the rest of the project. For convenience when dealing with vectors and matrices later, I created two vector classes (`vec3` and `vec4`) and three matrix classes (`mat2`, `mat3`, and `mat4`) along with their operations.
 
-> Unit tests for matrix classes pending.
+
+## :pencil2:- Atividade03 - Load 3D Object
+
+For this assignment, I created a class called `object3D` that describes 3D objects, storing their important components like vertices and faces in vector structures. The objec3D constructor expects a file path as an argument that points to an `OBJ` file containing the description of the geometry of a given model you want to load. It only loads an object from a .obj file, being the only geometry definition format accepted.

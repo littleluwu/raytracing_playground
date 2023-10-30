@@ -50,6 +50,54 @@ TEST(VectorTests, vec_op){
   EXPECT_EQ(3,b[3]);
 }
 
+TEST(MatrixTests,matrix_initialize){
+  mat3 a(vec3(1,2,3),vec3(4,5,6),vec3(7,8,9));
+
+  EXPECT_EQ(6,a.at(1,2));
+
+  mat3 b(1,2,3,4,5,6,7,8,9);
+
+  EXPECT_EQ(a.at(2,0),b.at(2,0));
+
+  mat3 c({{1,2,3},{1,2,3},{1,2,3}});
+
+  EXPECT_EQ(c.at(1,2),c.at(0,2));
+
+  mat4 id(vec4(1,0,0,0),vec4(0,1,0,0),vec4(0,0,1,0),vec4(0,0,0,1));
+
+  EXPECT_EQ(1,id.at(1,1));
+
+  mat4 a(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+
+  EXPECT_EQ(12,a.at(2,3));
+}
+
+TEST(MatrixTests,matrix_op){
+  mat3 a(vec3(1,2,3),vec3(4,5,6),vec3(7,8,9));
+  mat3 b(1,2,3,4,5,6,7,8,9);
+  a += b;
+  EXPECT_EQ(a.at(1,2),2*b.at(1,2));
+
+  mat3 id(vec3(1,0,0),vec3(0,1,0),vec3(0,0,1));
+  a *= id;
+  EXPECT_EQ(a.at(1,2),2*b.at(1,2));
+
+  b = 2*b;
+  EXPECT_EQ(a.at(1,2),b.at(1,2));
+
+  mat4 a(vec4(1,2,3,4),vec4(5,6,7,8),vec4(9,10,11,12),vec4(13,14,15,16));
+  mat4 b(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+  a += b;
+  EXPECT_EQ(a.at(3,2),2*b.at(3,2));
+
+  mat4 id(vec4(1,0,0,0),vec4(0,1,0,0),vec4(0,0,1,0),vec4(0,0,0,1));
+  a *= id;
+  EXPECT_EQ(a.at(3,2),2*b.at(3,2));
+
+  b = 2*b;
+  EXPECT_EQ(a.at(3,2),b.at(3,2));
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
