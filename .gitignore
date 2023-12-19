@@ -1,0 +1,5 @@
+#Ignore .exe
+*.exe
+
+#ignore .vscode
+.vscode/

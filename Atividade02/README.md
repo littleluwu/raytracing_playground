@@ -1,6 +1,6 @@
 # :pencil2:- Atividade02 - Matrix Operations
 
-This assignment set some groundwork for the rest of the project. For convenience when dealing with vectors and matrices later, I created two vector classes (`vec3` and `vec4`) and three matrix classes (`mat2`, `mat3`, and `mat4`) along with their operations.
+This assignment set some groundwork for the rest of the project. For convenience when dealing with vectors and matrices later, We created two vector classes (`vec3` and `vec4`) and three matrix classes (`mat2`, `mat3`, and `mat4`) along with their operations.
 
 The matrices `mat2`, `mat3`, and `mat4` support addition, subtraction, point-to-point multiplication, and scalar multiplication. Vector and matrix multiplication is only supported for the types with compatible sizes.
 Vectors `vec3` and `vec4` support the basic operations between them, but only 3D vectors support cross-multiplication. All the implemented classes dispose of many ways to describe them in the constructor, like initializing a `mat3` with three variables of type `vec3`.

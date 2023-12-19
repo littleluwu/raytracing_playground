@@ -6,7 +6,7 @@ using namespace std;
 int main(){
     //First Image
     //Black to Red Gradient
-    char *path = "./gradient.png";
+    char *path = "./output/gradient.png";
     RGBv **m = (RGBv **)malloc(256*sizeof(RGBv *));
     for (int i = 0; i < 256; i++) m[i] = (RGBv *)malloc(256*sizeof(RGBv));
 
@@ -23,7 +23,7 @@ int main(){
     //Pink square on a White canvas
     int square = 100;
     int center = 256/2;
-    path = "./square.png";
+    path = "./output/square.png";
     for (int i = 0; i < 256; i++){
         for (int j = 0; j < 256; j++){
             if (i > center-square/2 && i < center+square/2 && j > center-square/2 && j < center+square/2){
@@ -44,7 +44,7 @@ int main(){
     //Red circle on a Black canvas
     int radius = 75;
     center = 256/2;
-    path = "./circle.png";
+    path = "./output/circle.png";
     for (int i = 0; i < 256; i++){
         for (int j = 0; j < 256; j++){
             if ((i-center)*(i-center) + (j-center)*(j-center) <= radius*radius){

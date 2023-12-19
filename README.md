@@ -35,3 +35,7 @@ This assignment set some groundwork for the rest of the project. For convenience
 ## :pencil2:- Atividade03 - Load 3D Object
 
 For this assignment, I created a class called `object3D` that describes 3D objects, storing their important components like vertices and faces in vector structures. The objec3D constructor expects a file path as an argument that points to an `OBJ` file containing the description of the geometry of a given model you want to load. It only loads an object from a .obj file, being the only geometry definition format accepted.
+
+## :pencil2:- Atividade04 - Rendering Shapes
+
+We started playing with raytracing in this assignment. Following chapters 4, 5, and 6 from the book Ray Tracing in One Weekend, we implemented classes for the rays, camera, shapes, and others to render the first object on the screen.
