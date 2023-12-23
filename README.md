@@ -43,6 +43,6 @@ We started playing with raytracing in this assignment. Following chapters 4, 5, 
 
 At this point in the class, we learned to render basic shapes and more complex models described by a mesh of polygons. For this assignment, we deal with object materials to let the rays interact with the objects in the environment. The first ray interaction we implemented was the diffuse reflection, also called Lambertian reflection. 
 
-## # :pencil2:- Atividade05 - Metal and Dieletrics
+## # :pencil2:- Atividade06 - Metal and Dieletrics
 
 We continue the work on materials, adding different ways for the rays to interact. The first material is the `Metal`, experimenting with specular reflection following the Chapter 10. The refraction, where the ray goes through the object with a slight distortion, we coded on the `Dielectric` class using the Chapter 11 as a base.

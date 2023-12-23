@@ -1,4 +1,4 @@
-# :pencil2:- Atividade05 - Metal and Dieletrics
+# :pencil2:- Atividade06 - Metal and Dieletrics
 
 We continue the work on materials, adding different ways for the rays to interact. The first material is the `Metal`, experimenting with specular reflection following the [Chapter 10](https://raytracing.github.io/books/RayTracingInOneWeekend.html#metal). The refraction, where the ray goes through the object with a slight distortion, we coded on the `Dielectric` class using the [Chapter 11](https://raytracing.github.io/books/RayTracingInOneWeekend.html#dielectrics) as a base.
 
