@@ -9,7 +9,6 @@ I divided this repository into sections where each section corresponds to one as
 Additionally, I also dissect the subsections with the objective of further organizing the files in this repository. They present a structure like the following:
 
 - **Headers** - A folder containing the header file declarations used in the assignment.
-- **Sources** - A folder with the headers implementations and source files utilized.
 - **Test** - A folder for the testing files to ensure the projected functions and classes work as wanted.
 
 ## :hammer:- Dependencies
@@ -39,3 +38,11 @@ For this assignment, I created a class called `object3D` that describes 3D objec
 ## :pencil2:- Atividade04 - Rendering Shapes
 
 We started playing with raytracing in this assignment. Following chapters 4, 5, and 6 from the book Ray Tracing in One Weekend, we implemented classes for the rays, camera, shapes, and others to render the first object on the screen.
+
+## :pencil2:- Atividade05 - Diffuse Materials
+
+At this point in the class, we learned to render basic shapes and more complex models described by a mesh of polygons. For this assignment, we deal with object materials to let the rays interact with the objects in the environment. The first ray interaction we implemented was the diffuse reflection, also called Lambertian reflection. 
+
+## # :pencil2:- Atividade05 - Metal and Dieletrics
+
+We continue the work on materials, adding different ways for the rays to interact. The first material is the `Metal`, experimenting with specular reflection following the Chapter 10. The refraction, where the ray goes through the object with a slight distortion, we coded on the `Dielectric` class using the Chapter 11 as a base.
