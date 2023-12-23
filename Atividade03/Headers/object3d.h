@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <vector>
 #include "../../Atividade02/Headers/vec3.h"
+#include "../../Atividade02/Headers/vec4.h"
+#include "../../Atividade02/Headers/mat4.h"
 #include "../../Atividade04/Headers/triangle.h"
-//#include "../../Atividade04/Headers/quadrilateral.h"
 #include "../../Atividade04/Headers/hittable_list.h"
-#include "../../import_utils.h"
 
 // Scheff's Cat
 // https://stackoverflow.com/questions/42315585/split-string-into-tokens-in-c-when-there-are-2-delimiters-in-a-row
@@ -74,27 +74,98 @@ class object3D{
             return id;
         }
 
-        hittable_list add_to_world(hittable_list world){
+        hittable_list add_to_world(hittable_list world, shared_ptr<material> mat){
             for (int ptr = 0; ptr < faces.size(); ptr++){
                 vector<int> id = get_face_vertices(ptr);
                 if (id.size() == 3){
                     world.add(make_shared<triangle>(
                         get_vertex(id[0]),
                         get_vertex(id[1]),
-                        get_vertex(id[2])));
+                        get_vertex(id[2]),
+                        mat,
+                        normal_mean(id[0],id[1],id[2])));
                 }
                 else{
                     world.add(make_shared<triangle>(
                         get_vertex(id[0]),
                         get_vertex(id[1]),
-                        get_vertex(id[2])));
+                        get_vertex(id[2]),
+                        mat,
+                        normal_mean(id[0],id[1],id[2])));
                     world.add(make_shared<triangle>(
                         get_vertex(id[2]),
                         get_vertex(id[3]),
-                        get_vertex(id[0])));
+                        get_vertex(id[0]),
+                        mat,
+                        normal_mean(id[2],id[3],id[0])));
                 }
             }
             return world;
+        }
+
+        vec3 normal_mean(int i, int j, int k){
+            vec3 mean = get_normal(i) + get_normal(j) + get_normal(k);
+            return mean / 3;
+        }
+
+        void move(float x, float y, float z){
+            mat4 t(
+                vec4(1,0,0,x),
+                vec4(0,1,0,y),
+                vec4(0,0,1,z),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }
+
+        void scale(float x, float y, float z){
+            mat4 t(
+                vec4(x,0,0,0),
+                vec4(0,y,0,0),
+                vec4(0,0,z,0),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }
+
+        void rotateX(float theta){
+            mat4 t(
+                vec4(1,0,0,0),
+                vec4(0,cos(theta),-sin(theta),0),
+                vec4(0,sin(theta),cos(theta),0),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }
+
+        void rotateY(float theta){
+            mat4 t(
+                vec4(cos(theta),0,sin(theta),0),
+                vec4(0,1,0,0),
+                vec4(-sin(theta),0,cos(theta),0),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }      
+
+        void rotateZ(float theta){
+            mat4 t(
+                vec4(cos(theta),-sin(theta),0,0),
+                vec4(sin(theta),cos(theta),0,0),
+                vec4(0,0,1,0),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }   
+        
+
+    private:
+        void transform(mat4 t){
+            for (int ptr = 0; ptr < vertices.size(); ptr++){
+                vec4 p = vertices[ptr].toPoint4();
+                p =  vecmult(p,t);
+                vertices[ptr] = vec3(p[0],p[1],p[2]);
+            }
         }
 
         void load_obj(char *file_path){

@@ -3,10 +3,13 @@
 
 #include "hittable.h"
 #include "../../Atividade02/Headers/vec3.h"
+#include "../../Atividade05/Headers/material.h"
+
 
 class triangle : public hittable {
   public:
-    triangle(point3 _v1, point3 _v2, point3 _v3) : v1(_v1), v2(_v2), v3(_v3) {}
+    triangle(point3 _v1, point3 _v2, point3 _v3, shared_ptr<material> _material, vec3 _normal) 
+      : v1(_v1), v2(_v2), v3(_v3), mat(_material), normal(_normal) {}
 
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         vec3 v1v2 = v2 - v1;
@@ -42,14 +45,18 @@ class triangle : public hittable {
 
         rec.t = t;
         rec.p = r.at(rec.t);
-        vec3 outward_normal = (rec.p) / 5;
+        vec3 outward_normal = rec.p;
         rec.set_face_normal(r, outward_normal);
+        rec.mat = mat;
 
         return true;
     }
 
   private:
     point3 v1, v2, v3;
+    shared_ptr<material> mat;
+    vec3 normal;
+
 };
 
 #endif

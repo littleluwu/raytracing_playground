@@ -12,7 +12,7 @@ For testing the code, we rendered three images with different objects: an image 
 
 ![Colored Sphere](/Atividade04/Test/output/sphere.png)
 
-- A triangle colored with a purple-blue gradient.
+- A black triangle.
 
 ![Blue Purple Triangle](/Atividade04/Test/output/triangle.png)
 
