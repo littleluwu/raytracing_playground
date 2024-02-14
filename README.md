@@ -24,7 +24,6 @@ In a short text format, I describe the work done and project decisions made. For
 
 For this assignment, I wrote a function to manage saving images on the disk. I chose primarily PNG encoding when dealing with images, thus using the `libpng` library. To test the save function, I represented some images in a 2D array of 256x256 and used the function `save_image()` to save them into .png files. 
 
-> A load function is yet to be written for use on future assignments.
 
 ## :pencil2:- Atividade02 - Matrix Operations
 
@@ -43,6 +42,12 @@ We started playing with raytracing in this assignment. Following chapters 4, 5, 
 
 At this point in the class, we learned to render basic shapes and more complex models described by a mesh of polygons. For this assignment, we deal with object materials to let the rays interact with the objects in the environment. The first ray interaction we implemented was the diffuse reflection, also called Lambertian reflection. 
 
-## # :pencil2:- Atividade06 - Metal and Dieletrics
+## :pencil2:- Atividade06 - Metal and Dieletrics
 
 We continue the work on materials, adding different ways for the rays to interact. The first material is the `Metal`, experimenting with specular reflection following the Chapter 10. The refraction, where the ray goes through the object with a slight distortion, we coded on the `Dielectric` class using the Chapter 11 as a base.
+
+# :video_camera: Animating with Rays
+
+Intending to apply the knowledge learned throughout the class, we rendered a short animation using raytracing. During the animation making, we tested different models to compose a scene. We composed the new scene with three. As for the camera, we chose to animate a circular movement around the glass dome with the cube inside. At last, we compiled the rendered frames into the final animation.
+
+![Final Animation](project/animation.gif)

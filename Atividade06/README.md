@@ -11,3 +11,9 @@ We tested the materials by rendering a sample scene with spheres, adding each ma
 - A dielectric sphere, a diffuse sphere, and a metal sphere.
 
 ![Materials and Spheres](/Atividade06/Test/output/materials_spheres.png)
+
+For testing the added camera properties of focus point and origin, we rendered the same scene with the materials sphere from a different point of view.
+
+- A distant shot of the three spheres.
+
+![Materials and Spheres](/Atividade06/Test/output/spheres_distant.png)

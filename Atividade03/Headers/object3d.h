@@ -77,13 +77,14 @@ class object3D{
         hittable_list add_to_world(hittable_list world, shared_ptr<material> mat){
             for (int ptr = 0; ptr < faces.size(); ptr++){
                 vector<int> id = get_face_vertices(ptr);
+                vector<int> normal = get_face_normals(ptr);
                 if (id.size() == 3){
                     world.add(make_shared<triangle>(
                         get_vertex(id[0]),
                         get_vertex(id[1]),
                         get_vertex(id[2]),
                         mat,
-                        normal_mean(id[0],id[1],id[2])));
+                        normal_mean(normal[0],normal[1],normal[2])));
                 }
                 else{
                     world.add(make_shared<triangle>(
@@ -91,15 +92,16 @@ class object3D{
                         get_vertex(id[1]),
                         get_vertex(id[2]),
                         mat,
-                        normal_mean(id[0],id[1],id[2])));
+                        normal_mean(normal[0],normal[1],normal[2])));
                     world.add(make_shared<triangle>(
                         get_vertex(id[2]),
                         get_vertex(id[3]),
                         get_vertex(id[0]),
                         mat,
-                        normal_mean(id[2],id[3],id[0])));
+                        normal_mean(normal[0],normal[1],normal[2])));
                 }
             }
+            printf("to world\n");
             return world;
         }
 
@@ -153,6 +155,30 @@ class object3D{
                 vec4(cos(theta),-sin(theta),0,0),
                 vec4(sin(theta),cos(theta),0,0),
                 vec4(0,0,1,0),
+                vec4(0,0,0,1)
+            );
+            transform(t);
+        }
+
+        void toZero(){
+            float x_mean = 0;
+            float y_mean = 0;
+            float z_mean = 0;
+            for (int ptr = 0; ptr < vertices.size(); ptr++){
+                vec3 p = vertices[ptr];
+                x_mean += p[0];
+                y_mean += p[1];
+                z_mean += p[2];
+            }
+
+            x_mean = -x_mean / vertices.size();
+            y_mean = -y_mean / vertices.size();
+            z_mean = -z_mean / vertices.size();
+
+            mat4 t(
+                vec4(1,0,0,x_mean),
+                vec4(0,1,0,y_mean),
+                vec4(0,0,1,z_mean),
                 vec4(0,0,0,1)
             );
             transform(t);

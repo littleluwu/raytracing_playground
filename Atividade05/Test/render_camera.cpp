@@ -6,7 +6,6 @@
 #include "../../Atividade04/Headers/sphere.h"
 #include "../../Atividade05/Headers/material.h"
 
-
 int main() {
     hittable_list world;
 
@@ -19,16 +18,15 @@ int main() {
 
     camera cam;
 
-    cam.aspect_ratio = 16.0 / 9.0;
-    cam.image_width = 400;
-    cam.samples_per_pixel = 100;
-    cam.max_depth = 50;
+    cam.aspect_ratio      = 16.0 / 9.0;
+    cam.image_width       = 400;
+    cam.samples_per_pixel = 20;
+    cam.max_depth         = 50;
 
-    cam.vfov = 90;
+    cam.vfov = 50;
     cam.lookfrom = point3(0,0,-2);
     cam.lookat   = point3(0,0,0);
     cam.vup      = vec3(0,1,0);
 
-
-    cam.render(world,"./output/diffuse_sphere.png");
+    cam.render(world,"./output/sphere_lowfov.png");
 }

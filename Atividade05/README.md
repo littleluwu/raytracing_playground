@@ -13,3 +13,7 @@ With the intent of testing the diffuse reflection, we rendered the sphere scene 
 - Diffuse spheres
 
 ![Diffuse Spheres](/Atividade05/Test/output/diffuse_sphere.png)
+
+To test the implementation of field-of-view (FOV) in the camera class, we rendered a close shot of the diffuse sphere using a reduced FOV.
+
+![Reduced FOV](/Atividade05/Test/output/sphere_lowfov.png)
